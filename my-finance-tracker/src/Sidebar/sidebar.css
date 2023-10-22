@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'Lato';
+    src: url(../assets/Lato-Bold.ttf);
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .sidebar .overlap-wrapper {
+    height: 100%;
+    overflow: hidden;
+    width: 240px;
+  }
+  
+  .sidebar .overlap {
+    height: 100%;
+    position: fixed;
+    width: 240px;
+  }
+  
+  .sidebar .sidebarbg {
+    background-color: var(--primary-sb-color);
+    height: 100%;
+    left: 1px;
+    position: absolute;
+    top: 0;
+    width: 240px;
+  }
+  
+  .sidebar .dashboardroute {
+    height: 65px;
+    position: absolute;
+    top: 12px;
+    width: 240px;
+  }
+  
+  .sidebar .overlap-group {
+    border-radius: 15px;
+    height: 65px;
+    position: relative;
+    width: 240px;
+  }
+  
+  .sidebar .rectangle {
+    border-radius: 15px;
+    height: 65px;
+    left: 1px;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s ease;
+    width: 240px;
+  }
+  
+  .sidebar .transactionsroute {
+    height: 65px;
+    left: 0;
+    position: absolute;
+    top: 77px;
+    width: 242px;
+  }
+  
+  .sidebar .img {
+    color: var(--third-text-color);
+    height: 35px;
+    left: 26px;
+    position: absolute;
+    top: 15px;
+    width: 35px;
+  }
+  
+  .sidebar .div {
+    color: var(--third-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 22px;
+    font-weight: 600;
+    left: 73px;
+    letter-spacing: 1.2px;
+    line-height: normal;
+    position: absolute;
+    top: 20px;
+  }
+
+  .sidebar-icon {
+    z-index: 20;
+    top: 5px;
+  }
+  
+  .sidebar .billsroute {
+    height: 65px;
+    left: 0;
+    position: absolute;
+    top: 142px;
+    width: 242px;
+  }
+  
+  .sidebar .budgetroute {
+    height: 65px;
+    left: 0;
+    position: absolute;
+    top: 207px;
+    width: 242px;
+  }
+  
+  .sidebar .savingsroute {
+    height: 65px;
+    left: 0;
+    position: absolute;
+    top: 272px;
+    width: 242px;
+  }
+
+  .sidebar .overlap-group:hover .rectangle {
+    background-color: var(--primary-sb-hover-color); /* or any color you want on hover */
+}
+
+  .sidebar .logout-button {
+    top: calc(100% - 65px);
+    height: 65px;
+    left: -8px;
+  }
+
+ @media screen and (max-width: 660px) {
+    .sidebar-icon {
+      position: fixed;
+      left: 10px;
+    }
+
+    .sidebar .div {
+      font-weight: 500;
+    }
+ }

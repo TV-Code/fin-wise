@@ -1,0 +1,635 @@
+@font-face {
+  font-family: Lato-Bold;
+  src: url(/src/assets/Lato-Bold.ttf);
+}
+@font-face {
+  font-family: Lato-Regular;
+  src: url(/src/assets/Lato-Regular.ttf);
+}
+.dashboard {
+  background-color: var(--primary-bg-color);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: calc(100% - 15rem);
+  height: 995px;
+  margin-left: 15rem;
+}
+.dashboard .title {
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 32px;
+  color: var(--primary-text-color);
+  top: 70px;
+  position: absolute;
+}
+.dashboard .overlap-group, .dashboard .transactions-box {
+  background-color: var(--primary-color);
+  border-radius: 40px;
+}
+.dashboard .text-wrapper, .dashboard .text-wrapper-2, .dashboard .text-wrapper-3, .dashboard .card-name, .dashboard .saving-name {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-weight: 700;
+  position: absolute;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.dashboard .text-wrapper-4, .dashboard .text-wrapper-5, .dashboard .text-wrapper-6, .dashboard .card-amount {
+  color: var(--secondary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-weight: 700;
+  position: absolute;
+  white-space: nowrap;
+}
+.dashboard .div {
+  background-color: var(--primary-bg-color);
+  width: 95%;
+  height: 895px;
+  top: 20px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 22px;
+}
+.dashboard .overlap-group {
+  height: 220px;
+  width: 45%;
+  position: relative;
+  order: 1;
+}
+.dashboard .text-wrapper {
+  font-size: 30px;
+  letter-spacing: 1.08px;
+  line-height: normal;
+  text-align: center;
+  width: 100%;
+  top: 50px;
+}
+.dashboard .text-wrapper-2 {
+  font-size: 22px;
+  width: 49.73%;
+  letter-spacing: 0.78px;
+  line-height: normal;
+  text-align: center;
+  top: 173px;
+}
+.dashboard .text-wrapper-3 {
+  font-size: 22px;
+  left: 50.27%;
+  width: 49.73%;
+  letter-spacing: 0.78px;
+  line-height: normal;
+  text-align: center;
+  top: 173px;
+}
+.dashboard .text-wrapper-4 {
+  font-size: 24px;
+  width: 100%;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  text-align: center;
+  top: 18px;
+}
+.dashboard .text-wrapper-5 {
+  font-size: 24px;
+  width: 49.73%;
+  left: 50.27%;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  text-align: center;
+  top: 140px;
+}
+.dashboard .text-wrapper-6 {
+  font-size: 24px;
+  width: 49.73%;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  text-align: center;
+  top: 140px;
+}
+.dashboard .line {
+  height: 3px;
+  left: 56.36%;
+  position: relative;
+  top: 102px;
+  width: 36.37%;
+}
+.dashboard .img {
+  height: 3px;
+  left: 7.27%;
+  position: absolute;
+  top: 115px;
+  width: 36.37%;
+}
+.dashboard .line-2 {
+  height: 56px;
+  left: 49.73%;
+  position: absolute;
+  top: 146px;
+  width: 3px;
+}
+.dashboard .rectangle {
+  height: 342px;
+  position: relative;
+  width: 45%;
+  overflow: hidden;
+  border-radius: 40px;
+  order: 4;
+}
+.dashboard .ct-chart {
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  fill: var(--primary-button-color);
+  overflow: visible;
+}
+.dashboard .ct-chart .ct-label {
+  font-family: "Lato", Helvetica;
+  font-size: 16px;
+  color: var(--primary-text-color);
+}
+.dashboard .ct-chart .ct-series.ct-series-a .ct-area {
+  fill: var(--primary-button-color);
+ /* Replace with your desired color */
+  fill-opacity: .75;
+  overflow: visible;
+}
+.dashboard .ct-series-a .ct-line {
+  stroke: var(--primary-button-color);
+ /* This is the color of your line */
+  stroke-width: 7px;
+}
+.dashboard .ct-series-a .ct-point {
+  stroke: var(--primary-button-color);
+ /* or whatever color you want the points to be */
+  stroke-width: 13px;
+}
+.dashboard .budget-div {
+  width: 45%;
+  height: 530px;
+  position: relative;
+  order: 5;
+}
+.dashboard .budget-box {
+  top: 4.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: start;
+  flex-direction: row;
+  position: relative;
+  gap: 22px;
+}
+.dashboard .small-budget-card {
+  background-color: var(--primary-color);
+  border-radius: 40px;
+  height: 230px;
+  width: calc(50% - 11px);
+}
+.dashboard .overlap-card {
+  height: 230px;
+  position: relative;
+  width: 100%;
+}
+.dashboard .card-text {
+  height: 245px;
+  left: 0;
+  position: absolute;
+  top: 115;
+  width: 100%;
+}
+.dashboard .card-name {
+  font-size: 24px;
+  left: 25px;
+  letter-spacing: 1.3px;
+  line-height: normal;
+  position: relative;
+  top: 145px;
+}
+.dashboard .card-left {
+  font-family: "Lato-Bold", Helvetica;
+  color: var(--third-text-color);
+  font-size: 18px;
+  left: 25px;
+  letter-spacing: 0.9px;
+  line-height: normal;
+  position: relative;
+  top: 165px;
+}
+.dashboard .card-amount {
+  font-size: 22px;
+  left: 25px;
+  letter-spacing: 1.3px;
+  line-height: normal;
+  position: relative;
+  top: 120px;
+}
+.dashboard .card-percentage {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  right: 25px;
+ /* use right instead of left */
+  text-align: right;
+ /* align text to right */
+  letter-spacing: 1.2px;
+  line-height: normal;
+  position: relative;
+  top: 113px;
+}
+.dashboard .boxy-radial-bar {
+  height: 117px;
+  left: 15px;
+  position: relative;
+  top: 15px;
+  width: 117px;
+}
+.dashboard .savings-div {
+  height: 224px;
+  width: 45%;
+  position: relative;
+  order: 3;
+}
+.dashboard .savings-box {
+  top: 11%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+}
+.dashboard .small-saving-card {
+  background-color: var(--primary-color);
+  border-radius: 40px;
+  height: 175px;
+  position: relative;
+  width: 47.27%;
+}
+.dashboard .saving-name {
+  font-size: 24px;
+  left: 25px;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  top: 15px;
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+}
+.dashboard .saving-percentage {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 25px;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  position: absolute;
+  top: 102px;
+}
+.dashboard .saving-amount {
+  color: #a8a8a8;
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 22px;
+  font-weight: 700;
+  left: 25px;
+  letter-spacing: 1.1px;
+  line-height: normal;
+  position: absolute;
+  top: 45px;
+  white-space: nowrap;
+}
+.dashboard .progress-bar {
+  border-radius: 30px;
+  height: 15px;
+  left: 10%;
+  position: absolute;
+  top: 138px;
+  width: 80%;
+}
+.dashboard .transactions-div {
+  height: 405px;
+  width: 45%;
+  position: relative;
+  order: 2;
+}
+.dashboard .transactions-box {
+  height: 88%;
+  top: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+.dashboard .transaction-headers {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 9%;
+  width: 100%;
+  margin-bottom: 20px;
+ /* This will push the first .group down */
+}
+.dashboard .group {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 20px;
+ /* Adjust for desired spacing between transactions */
+  position: relative;
+ /* Keeping this for any child elements that might be absolutely positioned */
+}
+.dashboard .group .text-wrapper-23 {
+  white-space: nowrap;
+ /* This ensures the minus sign and amount stay on the same line */
+  overflow: hidden;
+ /* This hides any overflow */
+  text-overflow: ellipsis;
+ /* This adds an ellipsis if the text is too long */
+  max-width: 100%;
+ /* Make sure the container takes up the full width it can */
+  right: 0;
+  left: auto;
+}
+.dashboard .line-3 {
+  height: 5px;
+  position: relative;
+  top: 40px;
+  width: 88.91%;
+}
+.dashboard .text-wrapper-19 {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+.dashboard .text-wrapper-20 {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: normal;
+}
+.dashboard .text-wrapper-21 {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0.9px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+.dashboard .text-wrapper-23 {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  left: 397px;
+  letter-spacing: 0.9px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+.dashboard .budgets-title {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  line-height: normal;
+  white-space: nowrap;
+}
+.dashboard .savings-title {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  line-height: normal;
+}
+.dashboard .transactions-text-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.dashboard .savings-text-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.dashboard .transactions-title {
+  color: var(--primary-text-color);
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  line-height: normal;
+}
+.dashboard .transactions-title-2 {
+  color: #8a8a8a;
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  line-height: normal;
+}
+.dashboard .text-wrapper-8 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.dashboard .budgets-title-2 {
+  color: #8a8a8a;
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  line-height: normal;
+  cursor: pointer;
+}
+.dashboard .savings-title-2 {
+  color: #8a8a8a;
+  font-family: "Lato-Bold", Helvetica;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  line-height: normal;
+}
+.dashboard .transaction-1 {
+  height: 22px;
+  position: relative;
+  top: 12%;
+  width: 100%;
+}
+.dashboard .transaction-2 {
+  height: 22px;
+  position: relative;
+  top: 14%;
+  width: 100%;
+}
+.dashboard .transaction-3 {
+  height: 22px;
+  position: relative;
+  top: 16%;
+  width: 100%;
+}
+.dashboard .transaction-4 {
+  height: 22px;
+  position: relative;
+  top: 18%;
+  width: 100%;
+}
+.dashboard .transaction-5 {
+  height: 22px;
+  position: relative;
+  top: 20%;
+  width: 100%;
+}
+@media screen and (min-width: 1470px) {
+  .dashboard .div {
+      width: 1168px;
+ }
+}
+@media screen and (max-width: 1279px) {
+  .dashboard {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+ }
+  .dashboard .left-column {
+      margin-left: 0;
+ }
+}
+@media screen and (max-width: 1000px) {
+  .dashboard .card-text{
+      justify-content: center;
+      display:contents;
+      align-items: center;
+ }
+  .dashboard .card-amount, .dashboard .card-left, .dashboard .card-name {
+      position: relative;
+      text-align: center;
+      left: 0;
+ }
+  .dashboard .card-percentage {
+      top: 15px;
+      left: 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+ }
+  .dashboard .boxy-radial-bar {
+      align-items: center;
+      margin: auto;
+      left: 0;
+      top: -90px;
+ }
+}
+@media screen and (max-width: 900px) {
+  .dashboard .title {
+    font-size: 26px;
+    margin-top: 5px;
+  }
+  .dashboard .transactions-title, .dashboard .transactions-title-2, .dashboard .budgets-title, .dashboard .budgets-title-2, .dashboard .savings-title, .dashboard .savings-title-2 {
+      font-size: 24px;
+ }
+  .dashboard .card-name {
+      width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      position: relative;
+ }
+}
+@media screen and (max-width: 768px) {
+  .dashboard .transactions-title, .dashboard .transactions-title-2, .dashboard .budgets-title, .dashboard .budgets-title-2, .dashboard .savings-title, .dashboard .savings-title-2 {
+      font-size: 20px;
+ }
+}
+@media screen and (max-width: 660px) {
+  .dashboard {
+      margin-top: 60px;
+      margin-left: 0;
+      margin-right: 0;
+      height: 1900px;
+ }
+  .dashboard .div {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      top: 15px;
+      height: 1790px;
+ }
+  .dashboard .rectangle, .dashboard .budget-div, .dashboard .savings-div, .dashboard .transactions-div, .dashboard .overlap-group {
+      width: 92%;
+ }
+  .dashboard .overlap-group {
+      top: 0;
+      order: 1;
+ }
+  .dashboard .rectangle {
+      top: 0;
+      order: 2;
+ }
+  .dashboard .transactions-div {
+      top: 0;
+      order: 3;
+ }
+  .dashboard .budget-div {
+      top: 0;
+      order: 4;
+ }
+  .dashboard .savings-div {
+      top: 0;
+      order: 5;
+ }
+  .dashboard .small-budget-card {
+      height: 230px;
+ }
+  .dashboard .text-wrapper, .dashboard .text-wrapper-4, .dashboard .text-wrapper-5, .dashboard .text-wrapper-6, .dashboard .text-wrapper-19, .dashboard .text-wrapper-20 {
+      font-weight: 500;
+ }
+  .dashboard .text-wrapper-2, .dashboard .text-wrapper-3 {
+      font-size: 24px;
+      font-weight: 500;
+ }
+  .dashboard .text-wrapper-21, .dashboard .text-wrapper-23 {
+      font-size: 16px;
+      font-weight: 500;
+ }
+  .dashboard .transactions-title, .dashboard .transactions-title-2, .dashboard .budgets-title, .dashboard .budgets-title-2, .dashboard .savings-title, .dashboard .savings-title-2 {
+      font-weight: 500;
+      font-size: 22px;
+ }
+  .dashboard .saving-name, .dashboard .saving-percentage, .dashboard .card-name {
+      font-size: 22px;
+      font-weight: 500;
+ }
+  .dashboard .saving-amount, .dashboard .card-amount, .dashboard .card-percentage {
+      font-size: 20px;
+      font-weight: 500;
+ }
+  .dashboard .card-left {
+      font-size: 17px;
+      font-weight: 500;
+ }
+}

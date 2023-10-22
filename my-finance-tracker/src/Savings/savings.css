@@ -1,0 +1,273 @@
+.savings {
+    background-color: var(--primary-bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 15rem);
+    height: 100%;
+    margin-left: 15rem;
+  }
+
+  .savings .div {
+    background-color: var(--primary-bg-color);
+    top: 59px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 353px));
+    grid-auto-rows: minmax(200px, auto);
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    position: relative;
+    width: 89.44%;
+    padding-bottom: 30px;
+    gap: 20.5px;
+  }
+  
+  .savings .header {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: normal;
+    position: relative;
+    top: 20px;
+    white-space: nowrap;
+  }
+  
+  .savings .card {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .savings .saving-card {
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    height: 200px;
+    position: relative;
+    width: 100%;
+    max-width: 353px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .savings .add-saving-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .savings .add-saving-card:hover, .saving-card:hover{
+    background-color: var(--primary-hover-color);
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .savings .overlap {
+    height: 110px;
+    left: 29px;
+    position: relative;
+    top: 25px;
+    width: 80%;
+  }
+  
+  .savings .card-text {
+    height: 110px;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 296px;
+  }
+  
+  .savings .overlap-group {
+    height: 61px;
+    left: 0;
+    position: relative;
+    top: -1px;
+    width: 168px;
+  }
+  
+  .savings .text-wrapper {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 26px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 1.3px;
+    line-height: normal;
+    position: relative;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .savings .text-wrapper-2 {
+    color: var(--third-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 28px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 1.4px;
+    line-height: normal;
+    position: relative;
+    top: 0;
+  }
+  
+  .savings .text-wrapper-3 {
+    color: var(--secondary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0.9px;
+    line-height: normal;
+    position: relative;
+    top: 0;
+    white-space: nowrap;
+    width: 80px;
+  }
+  
+  .savings .text-wrapper-4 {
+    color: var(--secondary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0.9px;
+    line-height: normal;
+    position: relative;
+    top: 0;
+    white-space: nowrap;
+    width: 80px;
+  }
+  
+  .savings .text-wrapper-5 {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 1.2px;
+    line-height: normal;
+    position: relative;
+    text-align: right;
+    top: -30px;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .savings .header-button {
+    position: relative;
+    background-color: var(--primary-button-color);
+    top: 35px;
+    width: 200px;
+    height: 45px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3 ease;
+}
+
+  .savings .header-button:hover {
+    background-color: var(--primary-button-hover-color);
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+  .savings .text-wrapper-6 {
+    font-family: "Lato", Helvetica;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    top: 4px;
+    color: var(--primary-text-color);
+  }
+
+  .savings .card.selected .saving-card{
+    border-radius: 33px;
+    border: 4px solid var(--primary-button-color);
+}
+  
+  .savings .progress-bar {
+    background-color: #dad5c9;
+    border-radius: 30px;
+    height: 17px;
+    left: 0;
+    position: relative;
+    top: -10px;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1279px) {
+    .savings {
+        margin-left: 0;
+        width: 100%;
+    }
+
+  }
+
+  @media screen and (max-width: 1080px) {
+    .savings .text-wrapper, .savings .text-wrapper-2 {
+      font-size: 24px;
+  }
+  
+    .savings .text-wrapper-3, .savings .text-wrapper-4 {
+      font-size: 16px;
+  }
+  
+    .savings .text-wrapper-5 {
+      font-size: 18px;
+  }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .savings .div {
+        top: 52px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .savings .header {
+        font-size: 26px;
+        font-weight: 500;
+        top: 20px;
+    }
+
+    .savings .header-button {
+      top: 25px;
+    }
+
+    .savings .text-wrapper, .savings .text-wrapper-2, .savings .text-wrapper-5 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .savings .text-wrapper-3, .savings .text-wrapper-4 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+  @media screen and (max-width: 660px) {
+    .savings {
+      margin-top: 60px;
+    }
+
+    .savings .div {
+        grid-template-columns: 1fr;
+    }
+
+    .savings .text-wrapper, .savings .text-wrapper-2, .savings .text-wrapper-5 {
+        font-size: 24px;
+    }
+
+    .savings .text-wrapper-3, .savings .text-wrapper-4 {
+        font-size: 18px;
+    }
+}

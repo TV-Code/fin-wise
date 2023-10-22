@@ -1,0 +1,226 @@
+:root {
+  /* Light theme */
+  --primary-bg-color: #ffffff;
+  --primary-color: #f3f1ed;
+  --primary-hover-color: #ebe7de;
+  --primary-text-color: #000;
+  --secondary-text-color: #6b6b6b;
+  --third-text-color: #474747;
+  --primary-button-color: #009688;
+  --primary-button-hover-color: #3da99e;
+  --primary-button-text-color: #f3f1ed;
+  --primary-sb-color: #e8e2d5;
+  --primary-sb-hover-color: #dad4c5;
+  --primary-inbound-color: #1e7e1e;
+  --primary-outbound-color: #b52020;
+
+  /* Dark theme */
+  --dark-primary-bg-color: #212121;
+  --dark-primary-color: #2f2f2f;
+  --dark-primary-hover-color: #444444;
+  --dark-primary-text-color: #fff;
+  --dark-secondary-text-color: #dddddd;
+  --dark-third-text-color: #cccccc;
+  --dark-primary-button-color: #4DB6AC;
+  --dark-primary-button-hover-color: #55cbbf;
+  --dark-primary-button-text-color: #fff;
+  --dark-primary-sb-color: #383838;
+  --dark-primary-sb-hover-color: #444444;
+  --dark-primary-inbound-color: #51d651;
+  --dark-primary-outbound-color: #e64c4c;
+}
+
+.dark-mode {
+  --primary-bg-color: var(--dark-primary-bg-color);
+  --primary-color: var(--dark-primary-color);
+  --primary-hover-color: var(--dark-primary-hover-color);
+  --primary-text-color: var(--dark-primary-text-color);
+  --secondary-text-color: var(--dark-secondary-text-color);
+  --third-text-color: var(--dark-third-text-color);
+  --primary-button-color: var(--dark-primary-button-color);
+  --primary-button-hover-color: var(--dark-primary-button-hover-color);
+  --primary-button-text-color: var(--dark-primary-button-text-color);
+  --primary-sb-color: var(--dark-primary-sb-color);
+  --primary-sb-hover-color: var(--dark-primary-sb-hover-color);
+  --primary-inbound-color: var(--dark-primary-inbound-color);
+  --primary-outbound-color: var(--dark-primary-outbound-color);
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.theme-toggle {
+  width: 60px;
+  height: 30px;
+  background: var(--dark-primary-color);
+  border-radius: 17px;
+  top: 15px;
+  position: absolute;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  right: 2%;
+  z-index: 15;
+}
+
+.theme-toggle .icon {
+  width: 24px;
+  height: 24px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.5s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+.theme-toggle .icon:before {
+  color: var(--primary-color);
+}
+
+.dark-mode .theme-toggle {
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.7s ease;
+  background-color: var(--dark-secondary-text-color);
+}
+
+.dark-mode .theme-toggle .icon {
+  transform: translateX(29px);
+  background-color: var(--dark-primary-color);
+}
+
+.dark-mode .theme-toggle .icon:before {
+  fill: var(--primary-color);
+}
+
+body .dialog {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed; 
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 1000; /* Ensures the dialog is on top */
+  width: 100%;
+  height: 100%;
+}
+
+body .dialog.active {
+  display: flex;
+}
+
+body .dialog-content {
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-radius: 25px;
+  max-width: 50%; /* Maximum width of the dialog, can be adjusted */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gives a subtle shadow */
+  position: relative;
+  top: -50px;
+  z-index: 1001; /* Ensures the content is above the background */
+  justify-content: center;
+  align-items: center;
+}
+
+body .dialog-title {
+  font-family: "Lato", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  margin-bottom: 20px;
+}
+
+body .dialog-body {
+  font-family: "Lato", Helvetica;
+  font-size: 18px;
+  color: var(--primary-text-color);
+  margin-bottom: 20px;
+}
+
+body .dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+body .dialog-button {
+  font-family: "Lato", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f3f1ed;
+  background-color: var(--primary-button-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+body .dialog-button:hover {
+  background-color: var(--primary-button-hover-color);
+}
+
+body .dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+body .dialog .MuiInput-underline:before {
+  border-bottom: 5px solid #d3d3d3;  /* Light grey border */
+}
+
+/* Space between form elements */
+body .dialog .MuiFormControl-root {
+  margin-bottom: 16px; /* Consistent spacing between form elements */
+}
+
+.error {
+  font-family: "Lato", Helvetica;
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.css-1yllih9-MuiPaper-root-MuiPickersPopper-paper, 
+.css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel, 
+.css-vhhwxn-MuiButtonBase-root-MuiPickersDay-root, 
+.css-1ciyc6b-MuiButtonBase-root-MuiPickersDay-root, 
+.css-12mkn7b-MuiButtonBase-root-MuiIconButton-root-MuiPickersCalendarHeader-switchViewButton, 
+.css-1nkg345-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button, 
+.css-kg9q0s-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button,
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper,
+.css-1hbyad5-MuiTypography-root,
+.css-1ciyc6b-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
+  color: var(--primary-text-color) !important;
+  background-color: var(--primary-color) !important;
+}
+
+@media screen and (max-width: 660px) {
+  .dialog .dialog-content {
+    max-width: 90%;
+  }
+
+  .theme-toggle {
+    position: fixed;
+  }
+}
+
+
+

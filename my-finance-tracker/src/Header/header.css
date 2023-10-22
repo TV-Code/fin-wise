@@ -1,0 +1,46 @@
+.header .header-bg {
+    background-color: var(--primary-hover-color);
+    position: relative;
+    width: calc(100% - 15rem);
+    margin-left: 15rem;
+    height: 60px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    border-bottom: #1e5256;
+}
+
+.header .header-bar {
+    width: 100%;
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    left: -10px;
+}
+
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+    background-color: var(--primary-color) !important;
+}
+
+@media screen and (min-width: 1470px) {
+    .header .header-bar {
+        width: 1230px;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .header .header-bg {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .header .header-bg {
+        padding: 0 18%;
+        position: fixed;
+    }
+}

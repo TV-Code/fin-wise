@@ -1,0 +1,482 @@
+.bills {
+    background-color: var(--primary-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 15rem);
+    margin-left: 15rem;
+  }
+  
+  .bills .bills-widget-wrapper {
+    background-color: var(--primary-bg-color);
+    height: 1080px;
+    width: 97.56%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .bills .bills-widget {
+    height: 975px;
+    position: relative;
+    top: 20px;
+    width: 92.33%;
+  }
+  
+  .bills .overlap {
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    height: 910px;
+    position: relative;
+    width: 100%;
+  }
+
+  .bills .header-wrapper {
+    position: relative;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 43px;
+    top: -40px;
+    width: 95%;
+  }
+
+  .bills .bill-box {
+    position: relative;
+    display: flex;   
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    top: 85px;
+    gap: 38px;
+}
+  
+  .bills .line {
+    position: relative;
+    left: 7.22%;
+    width: 84.84%;
+    top: 60px;
+    height: auto;
+  }
+
+  .bills .bill-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 22px;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: 94.26%;
+    margin: auto;
+  }
+  
+  .bills .bill {
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 30px;
+  }
+  
+  .bills .text-wrapper {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    justify-content: center;
+  }
+  
+  .bills .div {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    display: flex;
+    line-height: normal;
+    position: relative;
+    text-align: right;
+  }
+
+  .bills .top-info, .bills .bottom-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+  .bills .bill-wrapper > div, .bills .navbar-6 > div {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bills .text-wrapper-2, .bills .navbar-6 > .text-wrapper-5 {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.bills .div, .bills .navbar-6 > .text-wrapper-6 {
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+}
+  
+  .bills .text-wrapper-2 {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    line-height: normal;
+    display: flex;
+    position: relative;
+    white-space: nowrap;
+    text-align: left;
+  }
+  
+  .bills .text-wrapper-3 {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    justify-content: center;
+  }
+  
+  .bills .is-paid-check {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 30px;
+    position: relative;
+    width: 20%;
+  }
+  
+  .bills .navbar-6 {
+    justify-content: space-between;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 40px;
+    width: 84.84%;
+  }
+  
+  .bills .text-wrapper-4 {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    justify-content: center;
+  }
+  
+  .bills .text-wrapper-5 {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    line-height: normal;
+    position: relative;
+    text-align: left;
+  }
+  
+  .bills .text-wrapper-6 {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    line-height: normal;
+    position: relative;
+    text-align: right;
+  }
+
+  .bills .text-wrapper-8 {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    justify-content: center;
+  }
+  
+  .bills .navigate-next-black {
+    height: 60px;
+    left: 1009px;
+    position: absolute;
+    top: 817px;
+    width: 60px;
+  }
+  
+  .bills .img {
+    height: 60px;
+    left: 30px;
+    position: absolute;
+    top: 817px;
+    width: 60px;
+  }
+
+  .bills .icon-wrapper {
+    display: flex;
+    left: -5.55%;
+    top: -25px;
+    width: 111.1%;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+  }
+
+  .bills .more-icon {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+  .bills .header-button {
+    position: relative;
+    font-family: "Lato", Helvetica;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--primary-button-color);
+    width: 25%;
+    padding: 0%;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3 ease;
+}
+
+  .bills .overlap-group {
+    background-color: var(--primary-button-color);
+    border-radius: 15px;
+    height: 43px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: background-color 0.3 ease, transform 0.3 ease, box-shadow 0.3 ease;
+  }
+
+  .bills .overlap-group:hover {
+    background-color: var(--primary-button-hover-color);
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bills .text-wrapper-7 {
+    color: var(--primary-button-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+  }
+  
+  .bills .bills-title {
+    color: var(--primary-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: normal;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .bills .page-wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    top: 93%;
+}
+
+.bills .nav-button {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* for left button */
+}
+
+.bills .nav-button:last-child {
+    justify-content: flex-end; /* for right button */
+}
+
+.bills .page-number {
+    flex: 1;
+    color: var(--third-text-color);
+    font-family: "Lato", Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.bills .navigate-next-black, 
+.bills .img, 
+.bills .navigate-next-black-placeholder {
+    height: 60px;
+    border-radius: 25px;
+    width: 60px;
+}
+
+.bills .img {
+    transform: scaleX(-1);
+}
+
+@media screen and (min-width: 1470px) {
+    .bills .bills-widget {
+        width: 1108px;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    .bills {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+/* ... all your existing styles ... */
+
+@media screen and (max-width: 900px) {
+    .bills .overlap {
+        top: -10px;
+    }
+
+    .bills .bills-widget {
+        top: 50px;
+    }
+
+    .bills .line {
+        top: 54px;
+    }
+
+    .bills .bill-wrapper {
+        width: 88.89%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "a b c"
+            "d e f";
+    }
+
+    .bills .text-wrapper {
+        grid-area: a;
+        justify-self: left;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .bills .text-wrapper-3 {
+        grid-area: c;
+        justify-self: right;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .bills .text-wrapper-2 {
+        grid-area: d;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .bills .is-paid-check {
+        grid-area: e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .bills .div {
+        grid-area: f;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .bills .text-wrapper-4 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .bills .text-wrapper-7 {
+        font-size: 16px;
+    }
+
+    .bills .navbar-6 {
+        width: 80%;
+        top: 35px;
+    }
+
+    .bills .navbar-6 > .text-wrapper-5,
+    .bills .navbar-6 > .text-wrapper-6,
+    .bills .navbar-6 > .text-wrapper-8 {
+        display: none;
+    }
+
+    .bills .bill-wrapper > div, .bills .navbar-6 > div {
+        flex: 0;
+    }
+
+    .bills .bills-title {
+        font-size: 26px;
+        top: -40px;
+    }
+
+    .bills .header-button {
+        width: 30%;
+        top: 9px;
+    }
+
+    .bills .line {
+        left: 12.5%;
+        height: 4px;
+        width: 75%;
+    }
+
+    .bills .page-number {
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .bills {
+      margin-top: 60px;
+    }
+
+    .bills .header-button {
+        width: 40%;
+    }
+}
+ 
