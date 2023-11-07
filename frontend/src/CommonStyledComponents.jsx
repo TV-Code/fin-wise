@@ -128,14 +128,13 @@ export const CommonStyledFormControl = styled(FormControl)(({ theme }) => ({
 export const CommonStyledMenuItem = styled(MenuItem)(({ theme }) => ({
     fontFamily: 'Lato, Helvetica',
     color: "var(--primary-text-color)",
-                        backgroundColor: "var(--primary-color)",
-                        fontFamily: "Lato, Arial, Helvetica",
-                        "&:hover": {
-                            backgroundColor: "var(--primary-hover-color)"
-                        },
-                        "&.Mui-selected": {
-                            backgroundColor: "var(--primary-hover-color)",
-                        },
+    backgroundColor: "var(--primary-color)",
+        "&:hover": {
+            backgroundColor: "var(--primary-hover-color)"
+        },
+        "&.Mui-selected": {
+            backgroundColor: "var(--primary-hover-color)",
+        },
     '& .MuiPopover-paper.MuiMenu-paper': {
         '& .MuiMenuItem-root': {
             fontFamily: 'Lato, Helvetica',

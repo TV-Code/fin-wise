@@ -87,8 +87,7 @@ const isFormValid = () => {
   if (!transactionForm.description || 
       transactionForm.amount === 0 || 
       !transactionForm.date || 
-      !transactionForm.type || 
-      !transactionForm.budget) {
+      !transactionForm.type) {
       return false;
   }
   return true;
