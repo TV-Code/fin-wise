@@ -9,6 +9,7 @@ Finance Management: Create, edit, view, and delete budgets, savings, and bills.
 Transaction Handling: Log and categorize transactions with ease.
 Bulk Uploads: Import transaction data in bulk via CSV format.
 Interactive Dashboard: Visualize financial data with a beautiful chart.
+Responsive Design: Designed for screen sizes of all sizes including mobile phones.
 
 ## Technologies Used
 
@@ -81,5 +82,3 @@ After setting up the project, you can access the FinWise application in your bro
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-
-
