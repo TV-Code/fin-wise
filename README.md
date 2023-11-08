@@ -57,11 +57,19 @@ npm start
 ```bash
 # Move to the backend directory
 cd ../backend
+
 # Setup a virtual environment (optional)
 python -m venv venv
 source venv/bin/activate # For Unix systems
-# Install dependencies
+venv\Scripts\activate # For Windows systems
+
+# Install dependencies from requirements.txt
 pip install -r requirements.txt
+
+# If you prefer to use Conda for environment setup, use the environment.yml file
+conda env create -f environment.yml
+conda activate finwise_env
+
 # Start the backend server
 python manage.py runserver
 ```
