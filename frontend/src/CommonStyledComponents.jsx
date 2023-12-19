@@ -70,11 +70,6 @@ export const CommonStyledDatePicker = styled(DatePicker)(({ theme }) => ({
         color: 'var(--primary-text-color)',
       },
     
-      // Target individual days
-      "& .MuiPickersDay-day": {
-        color: 'var(--primary-text-color)',
-      },
-    
       // Target selected day
       "& .MuiPickersDay-daySelected": {
         backgroundColor: 'var(--primary-hover-color)',
