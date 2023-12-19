@@ -14,7 +14,7 @@ const ErrorMessage = styled(Typography)`
     color: red;
 `;
 
-function Signup() {
+function SignUp() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -114,4 +114,4 @@ function Signup() {
     );
 }
 
-export default Signup;
+export default SignUp;

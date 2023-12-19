@@ -34,8 +34,8 @@ const budgetsIconLight = "https://c.animaapp.com/gj7lBTnF/img/balance-black-24dp
 const budgetsIconDark = "https://c.animaapp.com/rY9olsf1/img/balance-black-24dp-1.svg";
 const savingsIconLight = "https://c.animaapp.com/gj7lBTnF/img/savings-black-24dp-1.svg";
 const savingsIconDark = "https://c.animaapp.com/rY9olsf1/img/savings-black-24dp-1.svg";
-const logOutIconLight = "src/assets/logout_black_24dp 2 (1).svg"
-const logOutIconDark = "src/assets/logout_black_24dp 2.svg";
+const logOutIconLight = "/logout_black_24dp 2 (1).svg"
+const logOutIconDark = "/logout_black_24dp 2.svg";
 
 
 function Sidebar() {

@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: mydbname
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+
+  django:
+    build: .
+    command: gunicorn financebackend.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    environment:
+      POSTGRES_DB: mydbname
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on:
+      - django
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html
+      - static_volume:/usr/src/app/static
+    ports:
+      - "80:80"
+    depends_on:
+      - django
+      - frontend
+
+volumes:
+  postgres_data:
+  static_volume:

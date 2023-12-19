@@ -18,9 +18,10 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('', include('transactions.urls')),
-    path('', include('bills.urls')),
-    path('', include('budgets.urls')),
-    path('', include('savings.urls')),
-    path('', include('users.urls')),
+    path('admin/', admin.site.urls),
+    path('api/transactions/', include('transactions.urls')),
+    path('api/bills/', include('bills.urls')),
+    path('api/budgets/', include('budgets.urls')),
+    path('api/savings/', include('savings.urls')),
+    path('api/users/', include('users.urls')),
 ]

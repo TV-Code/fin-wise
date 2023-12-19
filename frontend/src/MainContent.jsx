@@ -2,7 +2,7 @@ import { useLocation, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import Login from "./Users/Login";
-import Signup from "./Users/SignUp";
+import SignUp from "./Users/SignUp";
 import Header from "./Header/Header";
 import { useSearchFilter } from "./Header/SearchFilterContext";
 import Dashboard from "./Dashboard/Dashboard";
@@ -66,7 +66,7 @@ function MainContent() {
             
             <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/signup" element={<SignUp />} />
                 <Route path="" exact element={<PrivateWrapper />}>
                             <Route index element={<Dashboard />} />
                         </Route>

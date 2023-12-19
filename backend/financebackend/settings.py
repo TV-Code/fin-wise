@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-d*!_bie9b9)laivnig+c1=@z_cv$3c4vs-^i$_metu7lm&$1m6"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [f"195.35.36.11", "0.0.0.0", "localhost", "127.0.0.1"]
 
 # Rest Framework Settings
 REST_FRAMEWORK = {
@@ -75,7 +76,6 @@ ROOT_URLCONF = "financebackend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -95,11 +95,16 @@ WSGI_APPLICATION = "financebackend.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB', 'mydbname'),
+        'USER': os.environ.get('POSTGRES_USER', 'myuser'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'mypassword'),
+        'HOST': 'db',  # Set to Docker service name for db
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -140,6 +145,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/dist'),  # Adjust this path
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

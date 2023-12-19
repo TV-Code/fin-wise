@@ -1,0 +1,52 @@
+# fly.toml app configuration file generated for fin-wise-silent-forest-6046 on 2023-12-14T19:27:58-08:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "fin-wise-silent-forest-6046"
+primary_region = "sea"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
+
+[build]
+
+[env]
+  DB_HOST = "db"
+  DEBUG = "False"
+  POSTGRES_DB = "mydbname"
+  POSTGRES_PASSWORD = "mypassword"
+  POSTGRES_USER = "myuser"
+  primary_region = "sea"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8000
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "1s"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256

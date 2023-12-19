@@ -64,11 +64,6 @@ export const CommonStyledDatePicker = styled(DatePicker)(({ theme }) => ({
         color: 'var(--primary-text-color)',
       },
     
-      "& .MuiDialog-paper": {
-        backgroundColor: 'var(--primary-color)',
-        color: 'var(--primary-text-color)',
-      },
-    
       // Target the root of the desktop calendar pop-up (popover)
       "& .MuiPopover-paper": {
         backgroundColor: 'var(--primary-color)',

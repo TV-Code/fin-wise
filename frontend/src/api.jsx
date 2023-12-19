@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://192.168.1.101:8000';
+const API_URL = '/api';
 
 const api = axios.create({
     baseURL: API_URL,
@@ -168,7 +168,7 @@ export const deleteBudget = async (budgetId) => {
 
 export const getSelectedBudgets = async () => {
   try {
-    const response = await api.get(`/getSelectedBudgets/`);
+    const response = await api.get(`/budgets/getSelectedBudgets/`);
     return response.data;
   } catch (error) {
     console.error("Error fetching selected budgets", error);
@@ -178,7 +178,7 @@ export const getSelectedBudgets = async () => {
 
 export const saveSelectedBudgets = async (selectedBudgets) => {
   try {
-    const response = await api.post(`/saveSelectedBudgets/`, selectedBudgets);
+    const response = await api.post(`/budgets/saveSelectedBudgets/`, selectedBudgets);
     return response.data;
   } catch (error) {
     console.error("Error saving selected budgets", error);
@@ -297,7 +297,7 @@ export const deleteSaving = async (savingId) => {
 
 export const saveSelectedSavings = async (selectedSavings) => {
   try {
-    const response = await api.post(`/saveSelectedSavings/`, selectedSavings);
+    const response = await api.post(`/savings/saveSelectedSavings/`, selectedSavings);
     return response.data;
   } catch (error) {
     console.error("Error saving selected savings", error);
@@ -307,7 +307,7 @@ export const saveSelectedSavings = async (selectedSavings) => {
 
 export const getSelectedSavings = async () => {
   try {
-    const response = await api.get(`/getSelectedSavings/`);
+    const response = await api.get(`/savings/getSelectedSavings/`);
     return response.data;
   } catch (error) {
     console.error("Error fetching selected savings", error);
@@ -338,7 +338,7 @@ export const getBudgetVsActual = async (budgetId) => {
 
 export const loginUser = async (username, password, rememberMe) => {
   try {
-      const response = await api.post(`/login/`, { username, password, remember_me: rememberMe });
+      const response = await api.post(`/users/login/`, { username, password, remember_me: rememberMe });
       console.log("API Response:", response.data);
       return response.data;
   } catch (error) {
@@ -349,7 +349,7 @@ export const loginUser = async (username, password, rememberMe) => {
 
 export const signupUser = async (username, password) => {
   try {
-      const response = await api.post(`/signup/`, { username, password });
+      const response = await api.post(`/users/signup/`, { username, password });
       return response.data;
   } catch (error) {
       console.error("Error during signup:", error.response ? error.response.data : error.message);
@@ -360,7 +360,7 @@ export const signupUser = async (username, password) => {
 // This can be a simple API call since the backend will handle deleting the cookie.
 export const logoutUser = async () => {
   try {
-    await api.post(`/logout/`);
+    await api.post(`/users/logout/`);
     // Clear any application state or perform any other logout actions here.
   } catch (error) {
     console.error("Error during logout:", error);
@@ -369,7 +369,7 @@ export const logoutUser = async () => {
 
 export const authCheck = async () => {
   try {
-    const response = await api.get(`/auth_check/`);
+    const response = await api.get(`/users/auth_check/`);
     if (response.status !== 200) {
       throw new Error('Not Authenticated');
     }

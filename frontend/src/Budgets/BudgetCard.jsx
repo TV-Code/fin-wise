@@ -6,7 +6,7 @@ const BudgetCard = ({ name, startDate, endDate, spent, left, total, percentage, 
   
   const formatDate = (date) => {
     const [year, month, day] = date.split('-');
-    return `${year.slice(-2)}-${month}-${day}`;
+    return `${year.slice(-2)}/${month}/${day}`;
   };
 
   return (
