@@ -27,6 +27,8 @@ services:
     build:
       context: .
       dockerfile: frontend/Dockerfile
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
     depends_on:
       - django
 
@@ -40,6 +42,7 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - django
       - frontend
