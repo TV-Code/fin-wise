@@ -15,6 +15,14 @@ const StyledAddRoundedIcon = styled(AddRoundedIcon)(({}) => ({
   fill: 'var(--primary-text-color)',
 }));
 
+const formatDateForBackend = (date) => {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+};
+
+const formatDateForDisplay = (date) => {
+  return `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`;
+};
+
 const ViewBudget = () => {
     const [budgets, setBudgets] = useState([]);
     const [openBudgetDialog, setOpenBudgetDialog] = useState(false);
@@ -24,7 +32,6 @@ const ViewBudget = () => {
 
     const PRESELECTED_COLORS = ['#45a6ad', '#8bc6d0', '#36605d', '#79a79d', '#5f6720', '#97bea7', '#bbcfa5', '#fbb022', '#e77f4d', '#c96149', '#c67875', '#e5a98d'];
     
-    // State for creating a new budget
     const [newBudgetName, setNewBudgetName] = useState('');
     const [newBudgetAmount, setNewBudgetAmount] = useState(0);
     const [newBudgetStartDate, setNewBudgetStartDate] = useState(new Date());
@@ -35,8 +42,6 @@ const ViewBudget = () => {
 
     const [selectedBudget, setSelectedBudget] = useState(null);
     const [selectedBudgets, setSelectedBudgets] = useState([]);
-
-    const formatDate = (date) => `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')}`;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -86,8 +91,8 @@ const ViewBudget = () => {
           const payload = {
             name: newBudgetName,
             amount: parseFloat(newBudgetAmount),
-            startDate: formatDate(newBudgetStartDate),
-            endDate: formatDate(newBudgetEndDate),
+            startDate: formatDateForBackend(newBudgetStartDate),
+            endDate: formatDateForBackend(newBudgetEndDate),
             color: newBudgetColor,
           };
           console.log("Sending payload:", payload); // Log to see what you're sending
@@ -105,8 +110,8 @@ const ViewBudget = () => {
         try {
           const updatedBudget = await updateBudget(selectedBudget.id, {
             ...selectedBudget,
-            startDate: formatDate(selectedBudget.startDate),
-            endDate: formatDate(selectedBudget.endDate),
+            startDate: formatDateForBackend(selectedBudget.startDate),
+            endDate: formatDateForBackend(selectedBudget.endDate),
           });
           setBudgets(budgets.map(budget => budget.id === updatedBudget.id ? updatedBudget : budget));
           handleCloseDialog();
@@ -175,8 +180,8 @@ const ViewBudget = () => {
               }}>
                 <BudgetCard
                   name={budget.name}
-                  startDate={budget.startDate}
-                  endDate={budget.endDate}
+                  startDate={formatDateForDisplay(budget.startDate)}
+                  endDate={formatDateForDisplay(budget.endDate)}
                   spent={budget.spent}
                   left={budget.left}
                   total={budget.amount}

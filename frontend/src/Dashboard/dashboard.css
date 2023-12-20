@@ -190,7 +190,7 @@
   width: calc(50% - 11px);
 }
 .dashboard .overlap-card {
-  height: 230px;
+  height: auto;
   position: relative;
   width: 100%;
 }
