@@ -15,6 +15,7 @@ services:
     command: gunicorn financebackend.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./backend:/app
+      - static_volume:/usr/src/app/static
     environment:
       POSTGRES_DB: mydbname
       POSTGRES_USER: myuser
