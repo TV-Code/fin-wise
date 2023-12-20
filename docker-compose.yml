@@ -37,6 +37,7 @@ services:
     volumes:
       - ./frontend/dist:/usr/share/nginx/html
       - static_volume:/usr/src/app/static
+      - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
     depends_on:
