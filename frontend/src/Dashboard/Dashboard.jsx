@@ -145,9 +145,8 @@ useEffect(() => {
 }, [data]);
 
 const adjustPath = (path) => {
-  let commands = path.split(/(?=[MLCZ])/);  // Split by command letters
+  let commands = path.split(/(?=[MLCZ])/);
 
-  // Find and adjust M command for x-axis
   let mIndex = commands.findIndex(cmd => cmd.startsWith('M'));
   if (mIndex !== -1) {
     let parts = commands[mIndex].split(',');
@@ -156,7 +155,6 @@ const adjustPath = (path) => {
     commands[mIndex] = parts.join(',');
   }
 
-  // Find and adjust the first L command for x-axis without changing its y axis
   let firstLIndex = commands.findIndex(cmd => cmd.startsWith('L'));
   if (firstLIndex !== -1) {
     let parts = commands[firstLIndex].split(',');
@@ -164,10 +162,9 @@ const adjustPath = (path) => {
     commands[firstLIndex] = parts.join(',');
   }
 
-  // Extend the final L command to the bottom-most edge while maintaining its x axis
   let lastLIndex = commands.slice().reverse().findIndex(cmd => cmd.startsWith('L'));
   if (lastLIndex !== -1) {
-    lastLIndex = commands.length - 1 - lastLIndex; // Convert from reverse index to regular index
+    lastLIndex = commands.length - 1 - lastLIndex;
     let parts = commands[lastLIndex].split(',');
     parts[1] = '700';
     commands[lastLIndex] = parts.join(',');
@@ -186,7 +183,6 @@ const totalExpensesCents = transactions
 
 const totalBalanceCents = totalIncomeCents - totalExpensesCents;
 
-// Convert them back to dollars for display:
 const totalIncome = toDollars(totalIncomeCents);
 const totalExpenses = toDollars(totalExpensesCents);
 const totalBalance = toDollars(totalBalanceCents);
@@ -215,7 +211,7 @@ const formatDate = (date) => {
 const createCumulativeData = (transactions) => {
   const data = [];
   const today = new Date();
-  const startDate = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);  // 30 days ago
+  const startDate = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
 
   let balanceCents = toCents(getBalanceUntilDate(transactions, startDate));
   const interval = 10;
@@ -238,7 +234,6 @@ const createCumulativeData = (transactions) => {
       return false;
     });
 
-    // Adjust the balance based on the day's transactions
     dayTransactions.forEach(transaction => {
       if (transaction.type === 'inbound') {
         balanceCents += toCents(parseFloat(transaction.amount));
@@ -316,11 +311,11 @@ const createCumulativeData = (transactions) => {
                 <BorderLinearProgress className="progress-bar" value={saving.percentage} variant="determinate" customcolor={saving.color}/>
                 </div>
             ))}
-            {Array.from({ length: savings && savings.length > 0 && placeholderSavingCards - savings.length }).map((_, idx) => (
+            {Array.from({ length: Math.max(0, placeholderSavingCards - (savings ? savings.length : 0)) }).map((_, idx) => (
                 <div key={idx} className="small-budget-card">
                   <div className="overlap-card"/>
                 </div>
-              ))}
+            ))}
           </div>
         </div>
           <div className="rectangle" >
