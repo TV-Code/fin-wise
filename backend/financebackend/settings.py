@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-d*!_bie9b9)laivnig+c1=@z_cv$3c4vs-^i$_metu7lm&$1m6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [f"195.35.36.11", "fin-wise.tech", "0.0.0.0", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [f"195.35.36.11", "www.fin-wise.tech", "fin-wise.tech", "0.0.0.0", "localhost", "127.0.0.1"]
 
 # Rest Framework Settings
 REST_FRAMEWORK = {
