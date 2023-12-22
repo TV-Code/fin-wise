@@ -87,7 +87,7 @@ const Dashboard = () => {
       }
       else {
         const allSavings = await getSavings();
-        setSavings(allSavings);
+        setSavings(allSavings.results);
       }
     };
 
@@ -303,7 +303,7 @@ const createCumulativeData = (transactions) => {
           <div className="savings-title-2"><StyledLink onClick={(e) => handleSavingLink(e)} href="/savings">Manage</StyledLink></div>
         </div>
           <div className="savings-box">
-            {savings.slice(0, placeholderSavingCards).map((saving, index) => (
+            {savings.slice(0, 2).map((saving, index) => (
               <div key={index} className="small-saving-card">
                 <div className="saving-name">{saving.name}</div>
                 <div className="saving-amount">$ {saving.amount}</div>
@@ -311,8 +311,10 @@ const createCumulativeData = (transactions) => {
                 <BorderLinearProgress className="progress-bar" value={saving.percentage} variant="determinate" customcolor={saving.color}/>
                 </div>
             ))}
-            {Array.from({ length: Math.max(0, placeholderSavingCards - (savings ? savings.length : 0)) }).map((_, idx) => (
-                <div key={idx} className="small-saving-card"/>
+            {Array.from({ length: placeholderSavingCards - savings.length }).map((_, idx) => (
+                <div key={idx} className="small-saving-card">
+                  <div className="overlap-card" />
+                </div>
             ))}
           </div>
         </div>

@@ -45,11 +45,20 @@ const Savings = () => {
     }, []);
 
     const isFormValid = () => {
-      if (!newSavingName || !newSavingAmount || !newSavingAmountSaved || !newSavingColor) {
-        return false;
+      if (dialogType === 'create') {
+          return newSavingName && newSavingAmount > 0 && newSavingAmountSaved >= 0 && newSavingColor;
+      } else if (dialogType === 'update') {
+          if (!selectedSaving) return false;
+  
+          let isNameValid = selectedSaving.name || newSavingName;
+          let isAmountValid = selectedSaving.amount > 0 || newSavingAmount > 0;
+          let isAmountSavedValid = selectedSaving.saved >= 0 || newSavingAmountSaved >= 0;
+          let isColorValid = selectedSaving.color || newSavingColor;
+  
+          return isNameValid && isAmountValid && isAmountSavedValid && isColorValid;
       }
-      return true;
-    };
+      return false;
+  };
 
     const handleOpenDialog = (type, saving = null) => {
         if (type === 'update' && saving) {
@@ -79,7 +88,7 @@ const Savings = () => {
             saved: parseFloat(newSavingAmountSaved),
             color: newSavingColor,
           };
-          console.log("Sending payload:", payload); // Log to see what you're sending
+          console.log("Sending payload:", payload);
           const newSaving = await createSaving(payload);
           setSavings([...savings, newSaving]);
           handleCloseDialog();
@@ -183,6 +192,7 @@ const Savings = () => {
                                         label="Name"
                                         type="text"
                                         fullWidth
+                                        autoComplete="off"
                                         value={dialogType === 'create' ? newSavingName : (selectedSaving ? selectedSaving.name : '')}
                                         onChange={event => dialogType === 'create' ? setNewSavingName(event.target.value) : setSelectedSaving({...selectedSaving, name: event.target.value})}
                                     />
@@ -191,6 +201,7 @@ const Savings = () => {
                                         label="Amount"
                                         type="number"
                                         fullWidth
+                                        autoComplete="off"
                                         value={dialogType === 'create' ? newSavingAmount : (selectedSaving ? selectedSaving.amount : 0)}
                                         onChange={event => dialogType === 'create' ? setNewSavingAmount(event.target.value) : setSelectedSaving({...selectedSaving, amount: event.target.value})}
                                     />
@@ -199,6 +210,7 @@ const Savings = () => {
                                         label="Amount Saved"
                                         type="number"
                                         fullWidth
+                                        autoComplete="off"
                                         value={dialogType === 'create' ? newSavingAmountSaved : (selectedSaving ? selectedSaving.saved : 0)}
                                         onChange={event => dialogType === 'create' ? setNewSavingAmountSaved(event.target.value) : setSelectedSaving({...selectedSaving, saved: event.target.value})}
                                     />

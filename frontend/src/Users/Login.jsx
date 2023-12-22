@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { loginUser } from '../api';
 import { useNavigate } from 'react-router-dom';
-import { Link, Typography, CircularProgress } from '@mui/material';
+import { Link, CircularProgress } from '@mui/material';
 import { CommonStyledTextField } from '../CommonStyledComponents';
 import './authstyles.css';
 
@@ -23,9 +23,7 @@ const Login = () => {
     };
 
     const handleSubmit = async (e) => {
-        console.log("Before preventDefault");
         e.preventDefault();
-        console.log("After preventDefault");
     
         if (!validateInputs()) return;
     
@@ -35,7 +33,6 @@ const Login = () => {
             if (response) { 
                 setIsLoggedIn(true);
                 navigate("/");
-                console.log(rememberMe);
             }
         } catch (error) {
             console.log(error);
@@ -47,8 +44,7 @@ const Login = () => {
 
     return (
         <div className="auth-container">
-        <div className="auth-card">
-            
+            <div className="auth-card">
                 <h5 className="auth-text">Login</h5>
                 <form className="auth-form" onSubmit={handleSubmit}>
                         <CommonStyledTextField

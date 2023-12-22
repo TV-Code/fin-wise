@@ -23,10 +23,8 @@ if (csrftoken) {
 }
 
 api.interceptors.response.use(response => response, error => {
-  if (error.response && error.response.status === 401) {
-      if (error.response.config.url !== `/login/`) {
-          window.location.href = '/login'; 
-      }
+  if (error.response && error.response.status === 401 && !error.response.config.url.includes(`/users/login`)) {
+    window.location.href = '/login';
   }
   return Promise.reject(error);
 });
@@ -361,7 +359,6 @@ export const signupUser = async (username, password) => {
 export const logoutUser = async () => {
   try {
     await api.post(`/users/logout/`);
-    // Clear any application state or perform any other logout actions here.
   } catch (error) {
     console.error("Error during logout:", error);
   }

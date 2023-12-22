@@ -9,8 +9,13 @@ const BulkEditForm = ({ selectedTransactions, budgets, onSubmit, handleClose, op
     amount: 0,
     type: '',
     budget: '',
-    date: new Date(),
+    date: null,
   });
+
+  const formatDate = (date) => {
+    if (!date) return null;
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  }
 
   useEffect(() => {
     const fields = ['description', 'amount', 'type', 'budget', 'date'];
@@ -28,15 +33,10 @@ const BulkEditForm = ({ selectedTransactions, budgets, onSubmit, handleClose, op
   const handleBulkEditSubmit = (event) => {
     event.preventDefault();
 
-    if (bulkEditFields.date) {
-      bulkEditFields.date = bulkEditFields.date;
-    }
-
-    // Remove blank fields from bulkEditFields
     const updates = {};
     for (let key in bulkEditFields) {
       if (bulkEditFields[key] !== '' && bulkEditFields[key] !== null && bulkEditFields[key] !== 0) {
-        updates[key] = bulkEditFields[key];
+        updates[key] = key === 'date' ? formatDate(bulkEditFields[key]) : bulkEditFields[key];
       }
     }
 
@@ -50,7 +50,7 @@ const BulkEditForm = ({ selectedTransactions, budgets, onSubmit, handleClose, op
       amount: 0,
       type: '',
       budget: '',
-      date: new Date(),
+      date: null,
     });
     handleClose();
   };
@@ -78,10 +78,10 @@ const BulkEditForm = ({ selectedTransactions, budgets, onSubmit, handleClose, op
               onChange={event => setBulkEditFields({ ...bulkEditFields, amount: parseFloat(event.target.value) })}
             />
             <CommonStyledDatePicker
-              label="Transactions date"
+              label="Date"
               value={bulkEditFields.date}
               onChange={(newValue) => {
-                setBulkEditFields({ ...bulkEditFields, date: newValue });
+                setBulkEditFields({ ...bulkEditFields, date: new Date(newValue) });
               }}
               textField={(params) => <TextField {...params} />}
             />

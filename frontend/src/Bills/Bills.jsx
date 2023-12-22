@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { InputLabel, IconButton, Checkbox, Select, OutlinedInput, useMediaQuery } from '@mui/material';
+import { InputLabel, IconButton, Checkbox, Select, OutlinedInput } from '@mui/material';
 import { 
     CommonStyledTextField,
     CommonStyledDatePicker,
@@ -15,7 +15,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { getBillsByPages, updateBillPaidStatus, deleteBill, createBill, updateBill } from '../api';
 import './bills.css'
-import { useTheme } from '@emotion/react';
 import { useSearchFilter } from '../Header/SearchFilterContext';
 
   const StyledIconButton = styled(IconButton)(({ theme }) => ({
@@ -57,10 +56,15 @@ const Bills = () => {
       }, [currentPage, refreshKey, search, filter]);
 
     const isFormValid = () => {
-        if(!newBillName || !newBillAmount || !newBillDueDate || !newBillRecurring) {
-            return false;
+        if (dialogType === 'create') {
+            return newBillName && newBillAmount > 0 && newBillDueDate;
+        } else if (dialogType === 'update') {
+            return selectedBill &&
+                   selectedBill.name &&
+                   selectedBill.amount > 0 &&
+                   selectedBill.due_date;
         }
-        return true;
+        return false;
     }
     
     const capitalizeFirstLetter = (string) => {
@@ -80,7 +84,7 @@ const Bills = () => {
     };
 
     const handleOpen = (bill) => {
-        resetDialogState(); // Reset the dialog state at the beginning
+        resetDialogState(); 
         if (bill && bill.id) {
             setDialogType('update');
             setSelectedBill({ ...bill });
@@ -161,7 +165,7 @@ const Bills = () => {
     
 
     const handleTogglePaidStatus = async (bill) => {
-        const updatedStatus = !bill.isPaid; // Toggle the status
+        const updatedStatus = !bill.isPaid;
         await updateBillPaidStatus(bill.id, updatedStatus);
         setRefreshKey(prevKey => prevKey + 1);
       };
@@ -256,6 +260,7 @@ const Bills = () => {
                                             label="Name"
                                             type="text"
                                             fullWidth
+                                            autoComplete="off"
                                             value={dialogType === 'create' ? newBillName : (selectedBill ? selectedBill.name : '')}
                                             onChange={event => dialogType === 'create' ? setNewBillName(event.target.value) : setSelectedBill({...selectedBill, name: event.target.value})}
                                         />
@@ -264,6 +269,7 @@ const Bills = () => {
                                             label="Amount"
                                             type="number"
                                             fullWidth
+                                            autoComplete="off"
                                             value={dialogType === 'create' ? newBillAmount : (selectedBill ? selectedBill.amount : 0)}
                                             onChange={event => dialogType === 'create' ? setNewBillAmount(event.target.value) : setSelectedBill({...selectedBill, amount: event.target.value})}
                                         />

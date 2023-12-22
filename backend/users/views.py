@@ -28,7 +28,7 @@ def login_view(request):
         token, _ = Token.objects.get_or_create(user=user)
         response = Response({'detail': 'Login successful'}, status=status.HTTP_200_OK)
         max_age = 14*24*60*60 if remember_me else None
-        response.set_cookie('auth_token', token.key, max_age=max_age, httponly=True, domain='fin-wise.tech', path='/', samesite='Lax')
+        response.set_cookie('auth_token', token.key, max_age=max_age, httponly=True, secure=True, domain='fin-wise.tech', path='/', samesite='Lax')
         return response
     return Response({'detail': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 

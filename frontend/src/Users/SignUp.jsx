@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signupUser } from '../api';
-import { Link, Typography, CircularProgress } from '@mui/material';
+import { Link, CircularProgress } from '@mui/material';
 import { CommonStyledTextField } from '../CommonStyledComponents';
 import "./authstyles.css";
-import styled from '@emotion/styled';
-
-const StyledLink = styled(Typography)`
-    margin-top: 15px;
-`;
-
-const ErrorMessage = styled(Typography)`
-    color: red;
-`;
 
 function SignUp() {
     const [username, setUsername] = useState('');
@@ -48,7 +39,6 @@ function SignUp() {
             const response = await signupUser(username, password);
             if (response) {
                 navigate('/login')
-
             }
         } catch (error) {
             setErrorMessage(error.response.data.message || 'Signup failed.');

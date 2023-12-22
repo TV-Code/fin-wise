@@ -84,13 +84,15 @@ useEffect(() => {
 }, [selectionMode]);
 
 const isFormValid = () => {
-  if (!transactionForm.description || 
-      transactionForm.amount === 0 || 
-      !transactionForm.date || 
-      !transactionForm.type) {
-      return false;
+  if (dialogType === 'create') {
+    return transactionForm.description && transactionForm.amount > 0 && transactionForm.date;
+  } else if (dialogType === 'update') {
+    return selectedTransaction &&
+           selectedTransaction.description &&
+           selectedTransaction.amount > 0 &&
+           selectedTransaction.date;
   }
-  return true;
+  return false;
 };
 
 const goToNextPage = () => {

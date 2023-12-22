@@ -13,8 +13,31 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+ENVIRONMENT = os.environ.get('DJANGO_ENVIRONMENT', 'development')
+
+if ENVIRONMENT == 'development':
+    DEBUG = True
+    ALLOWED_HOSTS = [f"localhost", "127.0.0.1", "0.0.0.0"]
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else: 
+    DEBUG = False
+    ALLOWED_HOSTS = [f"195.35.36.11", "fin-wise.tech", "www.fin-wise.tech"]
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('POSTGRES_DB', 'mydbname'),
+            'USER': os.environ.get('POSTGRES_USER', 'myuser'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'mypassword'),
+            'HOST': 'db',
+            'PORT': '5432',
+        }
+    }
 
 
 # Quick-start development settings - unsuitable for production
@@ -22,9 +45,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-d*!_bie9b9)laivnig+c1=@z_cv$3c4vs-^i$_metu7lm&$1m6"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 ALLOWED_HOSTS = [f"195.35.36.11", "www.fin-wise.tech", "fin-wise.tech", "0.0.0.0", "localhost", "127.0.0.1"]
 
@@ -89,23 +109,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "financebackend.wsgi.application"
-
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB', 'mydbname'),
-        'USER': os.environ.get('POSTGRES_USER', 'myuser'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'mypassword'),
-        'HOST': 'db',  # Set to Docker service name for db
-        'PORT': '5432',
-    }
-}
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

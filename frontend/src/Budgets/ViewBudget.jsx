@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { OutlinedInput, InputLabel, Select, MenuItem } from '@mui/material';
+import { OutlinedInput, InputLabel, Select } from '@mui/material';
 import { CommonStyledTextField, CommonStyledDatePicker, CommonStyledFormControl, CommonStyledMenuItem } from '../CommonStyledComponents';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import { getBudgets, createBudget, updateBudget, deleteBudget, saveSelectedBudgets } from '../api';
@@ -24,7 +24,6 @@ const ViewBudget = () => {
 
     const PRESELECTED_COLORS = ['#45a6ad', '#8bc6d0', '#36605d', '#79a79d', '#5f6720', '#97bea7', '#bbcfa5', '#fbb022', '#e77f4d', '#c96149', '#c67875', '#e5a98d'];
     
-    // State for creating a new budget
     const [newBudgetName, setNewBudgetName] = useState('');
     const [newBudgetAmount, setNewBudgetAmount] = useState(0);
     const [newBudgetStartDate, setNewBudgetStartDate] = useState(new Date());
@@ -52,10 +51,17 @@ const ViewBudget = () => {
     }, []);
 
     const isFormValid = () => {
-      if (!newBudgetName || !newBudgetAmount || !newBudgetStartDate || !newBudgetEndDate || !newBudgetColor) {
-        return false;
+      if (dialogType === 'create') {
+        return newBudgetName && newBudgetAmount > 0 && newBudgetStartDate && newBudgetEndDate && newBudgetColor;
+      } else if (dialogType === 'update') {
+        return selectedBudget &&
+               selectedBudget.name && 
+               selectedBudget.amount > 0 &&
+               selectedBudget.startDate &&
+               selectedBudget.endDate &&
+               selectedBudget.color;
       }
-      return true;
+      return false;
     };
   
     const handleOpenDialog = (type, budget = null) => {
