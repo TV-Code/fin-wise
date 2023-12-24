@@ -34,6 +34,9 @@ const Header = ({ filters }) => {
                     },
                     "& .MuiMenu-paper": {
                         backgroundColor: "var(--primary-color)",
+                    },
+                    "& .MuiPopover-root .MuiMenu-root .MuiModal-root .css-1sucic7 .MuiPaper-root .MuiPaper-elevation .MuiPaper-rounded .MuiPaper-elevation8 .MuiMenu-paper .MuiPopover-paper .MuiMenu-paper .css-pwxzbm": {
+                        backgroundColor: "var(--primary-color)"
                     }
                 }}
             >

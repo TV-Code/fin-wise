@@ -68,7 +68,7 @@
   .budgets .budget-card-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 225px;
     width: 100%; 
     max-width: 353px;
 }

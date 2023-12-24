@@ -51,7 +51,7 @@
     align-items: center;
     flex-direction: column; 
     top: 85px;
-    gap: 38px;
+    gap: 30.5px;
 }
   
   .bills .line {
@@ -219,22 +219,6 @@
     position: relative;
     white-space: nowrap;
     justify-content: center;
-  }
-  
-  .bills .navigate-next-black {
-    height: 60px;
-    left: 1009px;
-    position: absolute;
-    top: 817px;
-    width: 60px;
-  }
-  
-  .bills .img {
-    height: 60px;
-    left: 30px;
-    position: absolute;
-    top: 817px;
-    width: 60px;
   }
 
   .bills .icon-wrapper {

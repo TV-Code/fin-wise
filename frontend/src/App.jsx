@@ -7,42 +7,162 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SearchFilterProvider } from './Header/SearchFilterContext';
 import EditModeContext from './editModeContext';
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#8AAAE5',
+    },
+    background: {
+      default: 'var(--primary-bg-color)'
+    },
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        body: {
+          backgroundColor: '#FFFFFF',
+        },
+      },
+    },
+    MuiPickersToolbar: {
+      toolbar: {
+        backgroundColor: "var(--primary-color)",
+      },
+    },
+    MuiPickersCalendarHeader: {
+      switchHeader: {
+        backgroundColor: "var(--primary-color)",
+        color: "var(--primary-text-color)",
+      },
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        textPrimary: {
+          color: 'var(--primary-button-color)', // Replace with your desired color
+          // Add any other styles you need
+        },
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        icon: {
+          color: 'var(--primary-text-color)',
+        },
+      },
+    },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: 'var(--primary-color)',
+        }
+      }
+    },
+    MuiPickersDay: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-text-color)',
+          '&:hover': {
+            backgroundColor: 'var(--primary-hover-color)',
+          },
+          '&.Mui-selected': {
+            backgroundColor: 'var(--primary-button-color)',
+            color: 'var(--primary-text-color)',
+            '&:hover': {
+              backgroundColor: 'var(--primary-button-hover-color)',
+            },
+          },
+        },
+        weekDayLabel: {
+          color: 'var(--secondary-text-color)',
+        },
+      },
+    },
+    MuiPickersArrowSwitcher: {
+      styleOverrides: {
+        button: {
+          // Apply your custom styles here
+          color: 'var(--secondary-text-color)', // Example style
+          // Add any other styles you need
+        },
+      },
+    },
+    MuiPickersCalendarHeader: {
+      styleOverrides: {
+        switchHeader: {
+          // Calendar header styles
+          backgroundColor: 'var(--secondary-text-color)',
+          color: 'var(--primary-text-color)',
+        },
+        iconButton: {
+          // Icon button in the header
+          color: 'var(--secondary-text-color)',
+        },
+        dayLabel: {
+          // Weekday labels
+          color: 'var(--primary-text-color)',
+        },
+        label: {
+          // Styles for the month label in the header
+          color: 'var(--secondary-text-color)',
+        },
+        switchViewButton: {
+          // Apply your custom styles here
+          color: 'var(--secondary-text-color)', // Example style
+          // Add any other styles you need
+        },
+      },
+    },
+    MuiDayCalendar: {
+      styleOverrides: {
+        weekDayLabel: {
+          color: 'var(--secondary-text-color)',
+        },
+      },
+    },
+    MuiYearCalendar: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-text-color)',
+        },
+      },
+    },
+    MuiPickersYear: {
+      styleOverrides: {
+        yearButton: {
+          '&:hover': {
+            backgroundColor: 'var(--primary-hover-color)',
+          },
+          "&.Mui-selected": {
+            backgroundColor: 'var(--primary-button-color)',
+            color: 'var(--primary-text-color)',
+            '&:hover': {
+              backgroundColor: 'var(--primary-button-hover-color)',
+            },
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          color: 'var(--primary-text-color)',
+          backgroundColor: 'var(--primary-color)',
+          '& .MuiPickersCalendarHeader-root, & .MuiPickersCalendarHeader-label': {
+            color: 'var(--secondary-text-color)',
+          },
+        },
+      },
+    },
+  },
+});
+
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isBudgetsEditMode, setIsBudgetsEditMode] = useState(false);
   const [isSavingsEditMode, setIsSavingsEditMode] = useState(false);
-
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#8AAAE5',
-      },
-      background: {
-        default: 'var(--primary-bg-color)'
-      },
-    },
-    overrides: {
-      MuiCssBaseline: {
-        '@global': {
-          body: {
-            backgroundColor: '#FFFFFF',
-          },
-        },
-      },
-      MuiPickersToolbar: {
-        toolbar: {
-          backgroundColor: "var(--primary-color)",
-        },
-      },
-      MuiPickersCalendarHeader: {
-        switchHeader: {
-          backgroundColor: "var(--primary-color)",
-          color: "var(--primary-text-color)",
-        },
-      },
-    },
-  });
-  
 
   useEffect(() => {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

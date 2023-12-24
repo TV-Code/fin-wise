@@ -63,7 +63,7 @@ const Transactions = () => {
   useEffect(() => {
     getTransactionsByPages(currentPage, transactionsPerPage, search, filter).then((data) => {
         setTransactions(data.transactions);
-        setTotalPages(Math.ceil(data.totalCount / transactionsPerPage));
+        setTotalPages(Math.max(1, Math.ceil(data.totalCount / transactionsPerPage)));
     });
   }, [currentPage, refreshKey, search, filter]);
   
@@ -537,9 +537,9 @@ const bulkUpdate = async (bulkEditFields) => {
                   }}
               >
                   {budgets.map(budget => (
-                      <MenuItem key={budget.id} value={budget.id}>
+                      <CommonStyledMenuItem key={budget.id} value={budget.id}>
                           {budget.name}
-                      </MenuItem>
+                      </CommonStyledMenuItem>
                   ))}
               </Select>
               </CommonStyledFormControl>

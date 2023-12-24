@@ -41,6 +41,9 @@ export const CommonStyledDatePicker = styled(DatePicker)(({ theme }) => ({
             borderColor: 'var(--primary-button-color)',
         },
     },
+    '& .MuiPickersDay-root': {
+        color: 'var(--primary-color)', // Custom color for the day numbers
+      },
     '& .MuiSvgIcon-root': {
         color: 'var(--primary-text-color)',
     },
@@ -53,6 +56,7 @@ export const CommonStyledDatePicker = styled(DatePicker)(({ theme }) => ({
     },
     '& .MuiInputBase-input': {
         color: 'var(--primary-text-color)',
+        backgroundColor: 'var(--primary-colour)',
         fontFamily: 'Lato, Helvetica',
     },
     '& .MuiPickersDay-day': {
@@ -79,6 +83,10 @@ export const CommonStyledDatePicker = styled(DatePicker)(({ theme }) => ({
       "& .MuiPickersDay-day:hover": {
         backgroundColor: 'var(--primary-hover-color)',
       },
+      
+      '& .MuiPickersDay-root:hover': {
+        backgroundColor: 'var(--primary-hover-color)', // For hovered day
+    },
     
       // Target month and year navigation buttons
       "& .MuiPickersCalendarHeader-iconButton": {
@@ -125,10 +133,11 @@ export const CommonStyledMenuItem = styled(MenuItem)(({ theme }) => ({
         "&.Mui-selected": {
             backgroundColor: "var(--primary-hover-color)",
         },
-    '& .MuiPopover-paper.MuiMenu-paper': {
+    '& .MuiPopover-paper .MuiMenu-paper': {
         '& .MuiMenuItem-root': {
             fontFamily: 'Lato, Helvetica',
             color: 'var(--primary-text-color)',
+            backgroundColor: 'var(--primary-color)',
         }
     },
 }));

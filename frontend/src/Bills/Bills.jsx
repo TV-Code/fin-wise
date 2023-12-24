@@ -51,7 +51,7 @@ const Bills = () => {
     useEffect(() => {
         getBillsByPages(currentPage, billsPerPage, search, filter).then((data) => {
             setBills(data.bills);
-            setTotalPages(Math.ceil(data.totalCount / billsPerPage));
+            setTotalPages(Math.max(1, Math.ceil(data.totalCount / billsPerPage)));
         });
       }, [currentPage, refreshKey, search, filter]);
 
