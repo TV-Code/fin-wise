@@ -108,6 +108,8 @@ const goToPreviousPage = () => {
 };
 
   const handleOpen = (transaction) => {
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = '12px';
     if (transaction && transaction.id) {
       setDialogType('update')
       setSelectedTransaction({
@@ -122,6 +124,8 @@ const goToPreviousPage = () => {
   };
 
   const handleOpenCSV = () => {
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = '12px';
     setOpenCSV(true);
   };
 
@@ -130,6 +134,8 @@ const goToPreviousPage = () => {
   };
 
   const handleClose = () => {
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
     resetDialogState();
     setCsvUploaded(false);
     setOpenCSV(false);
@@ -525,22 +531,24 @@ const bulkUpdate = async (bulkEditFields) => {
               <CommonStyledFormControl fullWidth margin="dense" variant="outlined">
               <InputLabel id="transaction-budget-label">Budget</InputLabel>
               <Select
-                  label="Budget"
-                  labelId="transaction-budget-label"
-                  value={transactionForm.budget}
-                  onChange={event => {
-                    if (dialogType === 'create') {
-                      setTransactionForm(prevForm => ({ ...prevForm, budget: event.target.value }));
-                    } else {
-                      setSelectedTransaction(prevTransaction => ({ ...prevTransaction, budget: event.target.value }));
-                    }
-                  }}
+                label="Budget"
+                labelId="transaction-budget-label"
+                value={dialogType === 'create' ? transactionForm.budget : (selectedTransaction ? selectedTransaction.budget : '')}
+                onChange={event => {
+                  const newBudget = event.target.value;
+                  if (dialogType === 'create') {
+                    setTransactionForm(prevForm => ({ ...prevForm, budget: newBudget }));
+                  } else {
+                    setSelectedTransaction(prevTransaction => ({ ...prevTransaction, budget: newBudget }));
+                  }
+                }}
               >
-                  {budgets.map(budget => (
-                      <CommonStyledMenuItem key={budget.id} value={budget.id}>
-                          {budget.name}
-                      </CommonStyledMenuItem>
-                  ))}
+                <CommonStyledMenuItem value='No Budget'>No Budget</CommonStyledMenuItem>
+                {budgets.map(budget => (
+                  <CommonStyledMenuItem key={budget.id} value={budget.id}>
+                    {budget.name}
+                  </CommonStyledMenuItem>
+                ))}
               </Select>
               </CommonStyledFormControl>
             </form>

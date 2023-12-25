@@ -96,6 +96,7 @@ export const CommonStyledDatePicker = styled(DatePicker)(({ theme }) => ({
 
 export const CommonStyledFormControl = styled(FormControl)(({ theme }) => ({
     fontFamily: 'Lato, Helvetica',
+    maxWidth: '100%',
     '& .MuiOutlinedInput-root': {
         '& fieldset': {
             borderColor: 'var(--primary-text-color)',

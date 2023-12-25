@@ -84,6 +84,8 @@ const Bills = () => {
     };
 
     const handleOpen = (bill) => {
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = '12px';
         resetDialogState(); 
         if (bill && bill.id) {
             setDialogType('update');
@@ -105,6 +107,8 @@ const Bills = () => {
     
 
     const handleClose = () => {
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
         resetDialogState();
         setSelectedBill(null);
         setDialogType('create');
